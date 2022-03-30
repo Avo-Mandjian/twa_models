@@ -1130,7 +1130,7 @@ class CustomizationDataProduct {
   final int note_available_is_optional;
   final String note_available_title;
   final List<String> keywords;
-  final Cms_attributes cms_attributes;
+  final String cms_attributes;
   final String label_en;
   final String label_ar;
   final String note_available_title_en;
@@ -1180,7 +1180,7 @@ class CustomizationDataProduct {
     int? note_available_is_optional,
     String? note_available_title,
     List<String>? keywords,
-    Cms_attributes? cms_attributes,
+    String? cms_attributes,
     String? label_en,
     String? label_ar,
     String? note_available_title_en,
@@ -1237,7 +1237,7 @@ class CustomizationDataProduct {
       'note_available_is_optional': note_available_is_optional,
       'note_available_title': note_available_title,
       'keywords': keywords,
-      'cms_attributes': cms_attributes.toMap(),
+      'cms_attributes': cms_attributes,
       'label_en': label_en,
       'label_ar': label_ar,
       'note_available_title_en': note_available_title_en,
@@ -1266,7 +1266,7 @@ class CustomizationDataProduct {
           map['note_available_is_optional']?.toInt() ?? 0,
       note_available_title: map['note_available_title'] ?? '',
       keywords: List<String>.from(map['keywords'] ?? const []),
-      cms_attributes: Cms_attributes.fromMap(map['cms_attributes'] ?? {}),
+      cms_attributes: jsonEncode(map['cms_attributes'] ?? {}),
       label_en: map['label_en'] ?? '',
       label_ar: map['label_ar'] ?? '',
       note_available_title_en: map['note_available_title_en'] ?? '',
@@ -1343,68 +1343,6 @@ class CustomizationDataProduct {
         note_available_title_fr.hashCode ^
         seo_attributes.hashCode;
   }
-}
-
-class Cms_attributes {
-  final String created_at;
-  final String updated_at;
-  final int version;
-  Cms_attributes({
-    this.created_at = '',
-    this.updated_at = '',
-    this.version = 0,
-  });
-
-  Cms_attributes copyWith({
-    String? created_at,
-    String? updated_at,
-    int? version,
-  }) {
-    return Cms_attributes(
-      created_at: created_at ?? this.created_at,
-      updated_at: updated_at ?? this.updated_at,
-      version: version ?? this.version,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'created_at': created_at,
-      'updated_at': updated_at,
-      'version': version,
-    };
-  }
-
-  factory Cms_attributes.fromMap(Map<String, dynamic> map) {
-    return Cms_attributes(
-      created_at: map['created_at'] ?? '',
-      updated_at: map['updated_at'] ?? '',
-      version: map['version']?.toInt() ?? 0,
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Cms_attributes.fromJson(String source) =>
-      Cms_attributes.fromMap(json.decode(source));
-
-  @override
-  String toString() =>
-      'Cms_attributes(created_at: $created_at, updated_at: $updated_at, version: $version)';
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Cms_attributes &&
-        other.created_at == created_at &&
-        other.updated_at == updated_at &&
-        other.version == version;
-  }
-
-  @override
-  int get hashCode =>
-      created_at.hashCode ^ updated_at.hashCode ^ version.hashCode;
 }
 
 class Gallery {

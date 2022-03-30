@@ -37,7 +37,7 @@ class CollectionsModel {
   final String phone_original;
   final String image;
   final String thumb;
-  final Cms_attributes? cms_attributes;
+  final Cms_attributesCollectionModel? cms_attributes;
   CollectionsModel({
     this.id = 0,
     this.created_at = '',
@@ -109,7 +109,7 @@ class CollectionsModel {
     String? phone_original,
     String? image,
     String? thumb,
-    Cms_attributes? cms_attributes,
+    Cms_attributesCollectionModel? cms_attributes,
   }) {
     return CollectionsModel(
       cms_attributes: cms_attributes ?? this.cms_attributes,
@@ -190,8 +190,8 @@ class CollectionsModel {
 
   factory CollectionsModel.fromMap(Map<String, dynamic> map) {
     return CollectionsModel(
-      cms_attributes:
-          Cms_attributes.fromMap(map['cms_attributes'] ?? Cms_attributes()),
+      cms_attributes: Cms_attributesCollectionModel.fromMap(
+          map['cms_attributes'] ?? Cms_attributesCollectionModel()),
       id: map['id']?.toInt() ?? 0,
       created_at: map['created_at'] ?? '',
       updated_at: map['updated_at'] ?? '',
@@ -325,13 +325,13 @@ class CollectionsModel {
 }
 
 class CmsCollectionModel {
-  final Cms_attributes cms_attributes;
+  final Cms_attributesCollectionModel cms_attributes;
   CmsCollectionModel({
     required this.cms_attributes,
   });
 
   CmsCollectionModel copyWith({
-    Cms_attributes? cms_attributes,
+    Cms_attributesCollectionModel? cms_attributes,
   }) {
     return CmsCollectionModel(
       cms_attributes: cms_attributes ?? this.cms_attributes,
@@ -346,7 +346,8 @@ class CmsCollectionModel {
 
   factory CmsCollectionModel.fromMap(Map<String, dynamic> map) {
     return CmsCollectionModel(
-      cms_attributes: Cms_attributes.fromMap(map['cms_attributes'] ?? {}),
+      cms_attributes:
+          Cms_attributesCollectionModel.fromMap(map['cms_attributes'] ?? {}),
     );
   }
 
@@ -370,16 +371,16 @@ class CmsCollectionModel {
   int get hashCode => cms_attributes.hashCode;
 }
 
-class Cms_attributes {
+class Cms_attributesCollectionModel {
   final String attributes_description;
-  Cms_attributes({
+  Cms_attributesCollectionModel({
     this.attributes_description = '',
   });
 
-  Cms_attributes copyWith({
+  Cms_attributesCollectionModel copyWith({
     String? attributes_description,
   }) {
-    return Cms_attributes(
+    return Cms_attributesCollectionModel(
       attributes_description:
           attributes_description ?? this.attributes_description,
     );
@@ -391,16 +392,16 @@ class Cms_attributes {
     };
   }
 
-  factory Cms_attributes.fromMap(Map<String, dynamic> map) {
-    return Cms_attributes(
+  factory Cms_attributesCollectionModel.fromMap(Map<String, dynamic> map) {
+    return Cms_attributesCollectionModel(
       attributes_description: map['attributes_description'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Cms_attributes.fromJson(String source) =>
-      Cms_attributes.fromMap(json.decode(source));
+  factory Cms_attributesCollectionModel.fromJson(String source) =>
+      Cms_attributesCollectionModel.fromMap(json.decode(source));
 
   @override
   String toString() =>
@@ -410,7 +411,7 @@ class Cms_attributes {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Cms_attributes &&
+    return other is Cms_attributesCollectionModel &&
         other.attributes_description == attributes_description;
   }
 

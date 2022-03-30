@@ -13,9 +13,9 @@ class AddedValueModel {
   final String icon;
   final String label;
   final String description;
-  final Cms_attributes cms_attributes;
+  final Cms_attributes? cms_attributes;
   final List<String> ecom_stores_id;
-  final Gallery image;
+  final Gallery? image;
   AddedValueModel({
     this.id = 0,
     this.created_at = '',
@@ -27,8 +27,8 @@ class AddedValueModel {
     this.icon = '',
     this.label = '',
     this.description = '',
-    required this.cms_attributes,
-    required this.image,
+    this.cms_attributes,
+    this.image,
     this.ecom_stores_id = const [],
   });
 
@@ -77,7 +77,7 @@ class AddedValueModel {
       'icon': icon,
       'label': label,
       'description': description,
-      'cms_attributes': cms_attributes.toMap(),
+      'cms_attributes': cms_attributes?.toMap(),
       'ecom_stores_id': ecom_stores_id,
     };
   }

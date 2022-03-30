@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: flutter_version_manager" time="0.041353">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: git_commit" time="0.07293">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: push_to_git_remote" time="1.350462">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

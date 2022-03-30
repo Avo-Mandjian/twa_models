@@ -19,7 +19,7 @@ class Product {
   final String prev_page_url;
   final int to;
   final int total;
-  final Request request;
+  final Request? request;
   final String filters;
   final String priceRangeFilter;
   Product({
@@ -36,7 +36,7 @@ class Product {
     this.prev_page_url = '',
     this.to = 0,
     this.total = 0,
-    required this.request,
+    this.request,
     this.filters = '',
     this.priceRangeFilter = '',
   });
@@ -96,7 +96,7 @@ class Product {
       'filters': filters,
       'to': to,
       'total': total,
-      'request': request.toMap(),
+      'request': request?.toMap(),
     };
   }
 

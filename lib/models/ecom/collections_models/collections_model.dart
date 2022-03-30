@@ -32,7 +32,7 @@ class CollectionsModel {
   final String description_en;
   final String description_ar;
   final String description_fr;
-  final Product products;
+  final Product? products;
   final String phone_country_code;
   final String phone_original;
   final String image;
@@ -68,7 +68,7 @@ class CollectionsModel {
     this.description_en = '',
     this.description_ar = '',
     this.description_fr = '',
-    required this.products,
+    this.products,
     this.phone_country_code = '',
     this.phone_original = '',
     this.image = 'https://cms.patchi.com/storage/data/cms_settings/1.jpg?v=1',
@@ -180,7 +180,7 @@ class CollectionsModel {
       'description_en': description_en,
       'description_ar': description_ar,
       'description_fr': description_fr,
-      'products': products.toMap(),
+      'products': products?.toMap(),
       'phone_country_code': phone_country_code,
       'phone_original': phone_original,
       'image': image,
